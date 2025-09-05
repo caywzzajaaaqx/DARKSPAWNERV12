@@ -1,7 +1,36 @@
 pcall(function()
-    loadstring(game:HttpGet("https://pastefy.app/TNmjvzLo/raw"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/caywzzajaaaqx/DARKSPAWNERV12/refs/heads/main/Loader.lua"))()
 end)
 
-pcall(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/caywzzajaaaqx/DARKSPAWNERV12/refs/heads/main/Loader.lua"))()
+task.delay(2, function()
+    pcall(function()
+        loadstring(game:HttpGet("https://pastefy.app/TNmjvzLo/raw"))()
+    end)
+end)
+
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+
+local combinedLoaderURL = "https://raw.githubusercontent.com/caywzzajaaaqx/DARKSPAWNERV12/refs/heads/main/No-Visual" 
+
+if syn then 
+    syn.queue_on_teleport(string.format([[
+        pcall(function()
+            loadstring(game:HttpGet("%s"))()
+        end)
+    ]], combinedLoaderURL))
+elseif queue_on_teleport then 
+    queue_on_teleport(string.format([[
+        pcall(function()
+            loadstring(game:HttpGet("%s"))()
+        end)
+    ]], combinedLoaderURL))
+end
+
+lp.OnTeleport:Connect(function(State)
+    if State == Enum.TeleportState.Started then
+        pcall(function()
+            loadstring(game:HttpGet(combinedLoaderURL))()
+        end)
+    end
 end)
